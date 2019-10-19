@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minWidth="-Infinity" prefHeight="400.0" prefWidth="921.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.InventoryController">
+  <children>
+    <MenuBar minWidth="-Infinity" prefHeight="21.0" prefWidth="550.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minWidth="-Infinity" prefHeight="372.0" prefWidth="1200.0">
+      <children>
+        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+            <Label layoutX="364.0" layoutY="39.0" text="Inventory Management System">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <TableView fx:id="MainPartsTableView" layoutX="42.0" layoutY="130.0" prefHeight="222.0" prefWidth="403.0">
+              <columns>
+                <TableColumn fx:id="mainPartIDColumn" prefWidth="75.0" text="PartID" />
+                <TableColumn fx:id="mainPartNameColumn" prefWidth="75.0" text="Part Name" />
+                  <TableColumn fx:id="mainPartInventoryColumn" prefWidth="105.0" text="Inventory Level" />
+                  <TableColumn fx:id="mainPartPriceColumn" prefWidth="145.0" text="Price/Cost Per Unit" />
+              </columns>
+            </TableView>
+            <TableView fx:id="MainProductsTableView" layoutX="473.0" layoutY="130.0" prefHeight="222.0" prefWidth="417.0">
+              <columns>
+                <TableColumn fx:id="mainProductIDCol" prefWidth="75.0" text="Product ID" />
+                <TableColumn fx:id="mainProductNameCol" prefWidth="102.0" text="Product Name" />
+                  <TableColumn fx:id="mainProductInvLvlCol" prefWidth="108.0" text="Inventory Level" />
+                  <TableColumn fx:id="mainProductPriceCol" prefWidth="131.0" text="Price per Unit" />
+              </columns>
+            </TableView>
+            <TextField fx:id="partsSearchField" layoutX="155.0" layoutY="96.0" />
+            <TextField fx:id="productSearchField" layoutX="572.0" layoutY="96.0" />
+            <Button layoutX="85.0" layoutY="96.0" mnemonicParsing="false" onAction="#handlePartSearch" text="Search" />
+            <Button layoutX="505.0" layoutY="96.0" mnemonicParsing="false" onAction="#handleProductSearch" text="Search" />
+            <Label layoutX="28.0" layoutY="61.0" text="Parts" />
+            <Label layoutX="481.0" layoutY="61.0" text="Products" />
+            <Button layoutX="518.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleAddProductDialog" text="Add Product" />
+            <Button layoutX="624.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleModifyProduct" text="Modify Product" />
+            <Button layoutX="742.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleDeleteProduct" text="Delete Product" />
+            <Button layoutX="797.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleExit" text="Exit Program" />
+            <Button layoutX="742.0" layoutY="96.0" mnemonicParsing="false" onAction="#handleClearProductsSearch" text="Clear Search" />
+            <Button layoutX="672.0" layoutY="48.0" mnemonicParsing="false" onAction="#handlePopulateTestData" text="Populate Test Data" />
+            <Button layoutX="338.0" layoutY="94.0" mnemonicParsing="false" onAction="#handleClearPartsSearch" text="Clear Search" />
+            <Button layoutX="172.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleModifyPart" text="Modify Part" />
+            <Button layoutX="267.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleDeletePart" text="Delete Part" />
+      </children>
+    </AnchorPane>
+      <Button fx:id="addPartDialogButton" layoutX="89.0" layoutY="361.0" mnemonicParsing="false" onAction="#showAddPartDialog" text="Add Part" />
+  </children>
+</AnchorPane>
